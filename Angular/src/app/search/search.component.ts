@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-
+  async search(param: string){
+    try{
+      let response = await fetch(`http://localhost:3000/ticker/${param}`);
+      let data = response.json()
+      console.log(data);
+    } catch(error){
+      console.log('Fetch error: ', error);
+    }
+  }
 }

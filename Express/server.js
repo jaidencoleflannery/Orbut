@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
 const request = require('request');
-
+const cors = require('cors');
 const port = process.env.PORT || 3000; 
+
+app.use(cors({
+    origin: 'http://localhost:4200'
+  }));
 
 const date = new Date();
     let day = date.getDate();
