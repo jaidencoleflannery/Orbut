@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #000000;
+    --text-color: #000000ee;
+    --subtext-color: #000000ee;
+    --highlight-color: #ff7b23;
+    --bg-color: #ffffff;
+    --font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    --transition-speed: 0.3s;
+    --text-size: 4em;
+    --subtext-size: 2.2em;
+}
+
+html {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
