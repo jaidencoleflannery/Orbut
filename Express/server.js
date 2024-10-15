@@ -4,8 +4,6 @@ const request = require('request');
 
 const port = process.env.PORT || 3000; 
 
-const key = 'XGVOKM22O6I5DT5M';
-
 const date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
@@ -18,6 +16,7 @@ app.get('/', (req, res) => {
 //uses polygon.io (limit 5 calls per minute)
 app.get('/ticker/:ticker', (req, res) => {
     const ticker = req.params.ticker;
+    const key = '___';
     console.log("getting: " + ticker);
     
     const fromDate = `${year}-${month}-${day}`;
@@ -25,7 +24,7 @@ app.get('/ticker/:ticker', (req, res) => {
     console.log(fromDate, 'through', currentDate);
     
     request.get({
-        url: `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/${fromDate}/${currentDate}?adjusted=true&sort=asc&apiKey=rTtXJUrOVcvbuJQiyjuEZJQaMytipl_1`,
+        url: `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/${fromDate}/${currentDate}?adjusted=true&sort=asc&apiKey=${key}`,
         json: true,
         headers: { 'User-Agent': 'request' }
     }, (err, apiRes, data) => {
@@ -45,6 +44,7 @@ app.get('/ticker/:ticker', (req, res) => {
 //uses alphavantage.co (limit 25 queries per day)
 app.get('/search/:value', (req, res) => {
     const value = req.params.value;
+    const key = '___';
     console.log("searching for: " + value);
 
     request.get({
