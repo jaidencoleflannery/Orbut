@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -9,7 +9,7 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-  data: any = {};
+  data = {"results": ""};
   results: any = {};
   
   async search(param: string){
@@ -22,6 +22,7 @@ export class SearchComponent {
       console.log('Fetch error: ', error);
     }
   }
+
   /*
     /ticker/:ticker returns a JSON object in format:
     {
