@@ -1,28 +1,13 @@
-import { Component } from '@angular/core';
-import { JsonPipe } from '@angular/common';
+<p>results works!</p>
+    <div class="search-results">Trading Volume: {{ dataResults.v | json }}</div>
+    <div class="search-results">Volume Weighted Average Price: {{ dataResults.vw | json }}</div>
+    <div class="search-results">Open Price: {{ dataResults.o | json }}</div>
+    <div class="search-results">Close Price: {{ dataResults.c | json }}</div>
+    <div class="search-results">Timestamp: {{ dataResults.vw | json }}</div>
+    <div class="search-results">Number of Transactions: {{ dataResults.vw | json }}</div>
 
-@Component({
-  selector: 'app-search',
-  standalone: true,
-  imports: [JsonPipe],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
-})
-export class SearchComponent {
-  data: any = {};
-  results: any = {};
-  
-  async search(param: string){
-    try{
-      let response = await fetch(`http://localhost:3000/ticker/${param}`);
-      this.data = await response.json();
-      this.results = this.data.results[0];
-      console.log(this.data);
-    } catch(error){
-      console.log('Fetch error: ', error);
-    }
-  }
-  /*
+
+    /*
     /ticker/:ticker returns a JSON object in format:
     {
       "ticker": "The exchange symbol that this item is traded under",
@@ -46,5 +31,3 @@ export class SearchComponent {
       "count": quantity.
     }
   */
-
-}

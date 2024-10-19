@@ -2,21 +2,21 @@ import { Component } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-search',
+  selector: 'app-results',
   standalone: true,
   imports: [JsonPipe],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  templateUrl: './results.component.html',
+  styleUrl: './results.component.css'
 })
-export class SearchComponent {
+export class ResultsComponent {
   data: any = {};
-  results: any = {};
+  dataResults: any = {};
   
-  async search(param: string){
+  async results(param: string){
     try{
       let response = await fetch(`http://localhost:3000/ticker/${param}`);
       this.data = await response.json();
-      this.results = this.data.results[0];
+      this.dataResults = this.data.results[0];
       console.log(this.data);
     } catch(error){
       console.log('Fetch error: ', error);
