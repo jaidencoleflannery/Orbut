@@ -13,6 +13,7 @@ export class SearchComponent {
   constructor(private searchDataService: SearchDataService) {}
 
   setParam(value: string){
+    console.log('search.component sending', value, 'to searchDataService');
     this.searchDataService.setParam(value);
   }
 }

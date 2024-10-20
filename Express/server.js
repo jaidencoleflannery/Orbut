@@ -23,7 +23,7 @@ app.get('/ticker/:ticker', (req, res) => {
     const key = '___';
     console.log("getting: " + ticker);
     
-    const fromDate = `${year}-${month}-${day-1}`;
+    const fromDate = `${year}-${month}-${day-7}`;
     const currentDate = `${year}-${month}-${day}`;
     console.log(fromDate, 'through', currentDate);
 

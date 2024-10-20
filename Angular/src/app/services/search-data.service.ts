@@ -6,17 +6,37 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SearchDataService {
   private data: any = {"results": ""};
-  public param: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+  private param = new BehaviorSubject<string | null>(null);
+  searchParam$ = this.param.asObservable();
 
   setParam(value: string): void{
+    console.log('search-data.service setting param to', value);
     this.param.next(value);
+    console.log('verifying service changed param, this.param.value:', this.param.value);
   }
   
-  async getData(){
+  // ticker financial information
+  async getTickerData(){
     try{
       // this api currently responds with a fake model payload to avoid api limitations
       let response = await fetch(`http://localhost:3000/ticker/${this.param}`);
       this.data = await response.json();
+      console.log('data being returned by search-date.service:', this.data);
+      return this.data
+    } catch(error){
+      console.log('Fetch error: ', error);
+      return error;
+    }
+  }
+
+  // ticker company information
+  async getTickerInfo(){
+    try{
+      // this api currently responds with a fake model payload to avoid api limitations
+      let response = await fetch(`http://localhost:3000/search/${this.param}`);
+      this.data = await response.json();
+      console.log('data being returned by search-date.service:', this.data);
       return this.data
     } catch(error){
       console.log('Fetch error: ', error);
@@ -24,7 +44,6 @@ export class SearchDataService {
     }
   }
 }
-
 
 
 
