@@ -15,10 +15,10 @@ export class ResultsComponent implements OnInit {
   tickerInfo: any = "No results";
   tickerData: any = "No results";
 
-  constructor(private searchDataService: SearchDataService){}
+  constructor(private SearchDataService: SearchDataService){}
 
   ngOnInit() {
-    this.subscription = this.searchDataService.searchParam$.subscribe((param) => {
+    this.subscription = this.SearchDataService.searchParam$.subscribe((param) => {
       if (param) {
         this.results();
       }
@@ -26,9 +26,9 @@ export class ResultsComponent implements OnInit {
   }
 
   async results(){
-    this.tickerInfo = await this.searchDataService.getTickerInfo();
+    this.tickerInfo = await this.SearchDataService.getTickerInfo();
     console.log('info fetching:', this.tickerInfo);
-    this.tickerData = await this.searchDataService.getTickerData();
+    this.tickerData = await this.SearchDataService.getTickerData();
     console.log('results fetching:', this.tickerData);
   }
 
