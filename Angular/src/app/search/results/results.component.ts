@@ -15,7 +15,8 @@ export class ResultsComponent {
   constructor(private searchDataService: SearchDataService){}
 
   async results(){
-    this.data = await this.searchDataService.getData(param);
+    this.data = await this.searchDataService.getData();
+    console.log(this.data);
   }
 
 }

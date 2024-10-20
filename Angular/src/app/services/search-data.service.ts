@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import { SearchComponent } from '../search/search.component';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchDataService {
-  data = {"results": ""};
-  results: any = {};
-  async getData(param: string){
+  private data: any = {"results": ""};
+  public param: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+  setParam(value: string): void{
+    this.param.next(value);
+  }
+  
+  async getData(){
     try{
-      let response = await fetch(`http://localhost:3000/ticker/${param}`);
+      // this api currently responds with a fake model payload to avoid api limitations
+      let response = await fetch(`http://localhost:3000/ticker/${this.param}`);
       this.data = await response.json();
-      this.results = this.data.results[0];
       return this.data
     } catch(error){
       console.log('Fetch error: ', error);
@@ -37,7 +42,7 @@ export class SearchDataService {
           "o": The open price for the symbol in the given time period,
           "c": The close price for the symbol in the given time period,
           "h": The open price for the symbol in the given time period.
-          "l": 136.3,
+          "l": 136.3, <-- ?
           "t": The Unix Msec timestamp for the start of the aggregate window,
           "n": The number of transactions in the aggregate window.
         }
