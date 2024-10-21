@@ -13,65 +13,8 @@ import { Subscription } from 'rxjs';
 export class ResultsComponent implements OnInit {
   subscription!: Subscription;
 
-  tickerInfo: any = {
-      "request_id": '',
-      "results": {
-          "active": '',
-          "address": {
-          "address1": '',
-          "city": '',
-          "postal_code": '',
-          "state": ''
-          },
-          "branding": {
-          "icon_url": '',
-          "logo_url": ''
-          },
-          "cik": '',
-          "composite_figi": '',
-          "currency_name": '',
-          "description": '',
-          "homepage_url": '',
-          "list_date": '',
-          "locale": '',
-          "market": '',
-          "market_cap": '',
-          "name": '',
-          "phone_number": '',
-          "primary_exchange": '',
-          "round_lot": '',
-          "share_class_figi": '',
-          "share_class_shares_outstanding": '',
-          "sic_code": '',
-          "sic_description": '',
-          "ticker": '',
-          "ticker_root": '',
-          "total_employees": '',
-          "type": '',
-          "weighted_shares_outstanding": ''
-      },
-      "status": ''
-  };
-
-  tickerData: any = {
-    ticker: '',
-    queryCount: '',
-    resultsCount: '',
-    adjusted: '',
-    results: {
-        v: '',
-        vw: '',
-        o: '',
-        c: '',
-        h: '',
-        l: '',
-        t: '',
-        n: ''
-    },
-    status: '',
-    request_id: '',
-    count: ''
-  }
+  tickerInfo: any;
+  tickerData: any;
 
   constructor(private SearchDataService: SearchDataService){}
 
@@ -84,7 +27,9 @@ export class ResultsComponent implements OnInit {
   }
 
   async results(){
-    this.tickerInfo = await this.SearchDataService.getTickerInfo();
+    const info = await this.SearchDataService.getTickerInfo();
+    this.tickerInfo = info.results;
+    console.log(this.tickerInfo.ticker_root);
 
     this.tickerData = await this.SearchDataService.getTickerData();
     this.tickerData = this.tickerData.results;
