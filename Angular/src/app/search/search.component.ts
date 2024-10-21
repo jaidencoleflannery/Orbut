@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { SearchDataService } from '../services/search-data.service';
+import { SearchDataService } from '../services/data.service';
 
 @Component({
   selector: 'app-search',

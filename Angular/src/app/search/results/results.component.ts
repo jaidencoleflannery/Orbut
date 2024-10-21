@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { SearchDataService } from '../../services/search-data.service';
+import { SearchDataService } from '../../services/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,8 +12,38 @@ import { Subscription } from 'rxjs';
 })
 export class ResultsComponent implements OnInit {
   subscription!: Subscription;
-  tickerInfo: any = "No results";
-  tickerData: any = "No results";
+
+  tickerInfo: any = {
+    ticker: '',
+    name: '',
+    type: '',
+    tegion: '',
+    marketOpen: '',
+    marketClose: '',
+    timezone: '',
+    currency: '',
+    matchScore: ''
+  };
+
+  tickerData: any = {
+    ticker: '',
+    queryCount: '',
+    resultsCount: '',
+    adjusted: '',
+    results: {
+      v: '',
+      vw: '',
+      o: '',
+      c: '',
+      h: '',
+      l: '',
+      t: '',
+      n: '',
+    },
+    status: '',
+    request_id: '',
+    count: ''
+    }
 
   constructor(private SearchDataService: SearchDataService){}
 
@@ -26,10 +56,13 @@ export class ResultsComponent implements OnInit {
   }
 
   async results(){
-    this.tickerInfo = await this.SearchDataService.getTickerInfo();
-    console.log('info fetching:', this.tickerInfo);
+    let ticker = await this.SearchDataService.getTickerInfo();
+    let tickerResults = ticker.results;
+    this.tickerInfo.ticker = ticker.bestMatches[0].results;
+    this.tickerInfo.name = Object.values(this.tickerInfo)[0];
+
     this.tickerData = await this.SearchDataService.getTickerData();
-    console.log('results fetching:', this.tickerData);
+    this.tickerData = this.tickerData.results;
   }
 
   ngOnDestroy() {
