@@ -6,7 +6,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SearchDataService {
   private data: any = {"results": ""};
-
   private param = new BehaviorSubject<string | null>(null);
   searchParam$ = this.param.asObservable();
 

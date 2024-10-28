@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #202020;
+    --secondary-color: #2a2a2a;
+    --text-color: #ffffffee;
+    --subtext-color: #eaeaeaee;
+    --highlight-color: #ff7b23;
+    --bg-color: #181818;
+    --font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    --transition-speed: 0.4s;
+    --text-size: 4em;
+    --subtext-size: 2.2em;
+}
+
+html {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+}

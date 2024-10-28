@@ -1,24 +1,7 @@
-:root {
-    --primary-color: #000000;
-    --secondary-color: #000000;
-    --text-color: #000000ee;
-    --subtext-color: #000000ee;
-    --highlight-color: #ff7b23;
-    --bg-color: #ffffff;
-    --font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    --transition-speed: 0.3s;
-    --text-size: 4em;
-    --subtext-size: 2.2em;
-}
-
-html {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
 
 .navbar {
     background-color: var(--bg-color);
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #181818;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -30,8 +13,9 @@ html {
     max-height: 4em;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
-    max-width: 1200px;
+    max-width: 80vw;
     margin: 0 auto;
     padding: 1rem;
 }
@@ -40,7 +24,8 @@ html {
     display: flex;
     position: relative;
     display: flex;
-    width: 33%;
+    width: 100%;
+    margin-left: 1.6em;
     justify-content: left;
 }
 

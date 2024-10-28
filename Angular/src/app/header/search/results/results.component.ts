@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { SearchDataService } from '../../services/data.service';
+import { SearchDataService } from '@services/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,6 +12,9 @@ import { Subscription } from 'rxjs';
 })
 export class ResultsComponent implements OnInit {
   subscription!: Subscription;
+
+  tickerFound: boolean = false;
+  dataFound: boolean = false;
 
   tickerInfo: any;
   tickerData: any;
@@ -28,10 +31,16 @@ export class ResultsComponent implements OnInit {
 
   async results(){
     const info = await this.SearchDataService.getTickerInfo();
+    if(info){
+      this.tickerFound = true;
+    }
     this.tickerInfo = info.results;
     console.log(this.tickerInfo.ticker_root);
 
     this.tickerData = await this.SearchDataService.getTickerData();
+    if(this.tickerData){
+      this.dataFound = true;
+    }
     this.tickerData = this.tickerData.results;
   }
 
