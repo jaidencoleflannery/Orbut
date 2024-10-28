@@ -1,0 +1,29 @@
+#results-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+    width: 80vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1em;
+    background-color: var(--secondary-color);
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.center {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

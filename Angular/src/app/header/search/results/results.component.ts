@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { SearchDataService } from '../../services/search-data.service';
+import { SearchDataService } from '@services/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,8 +12,12 @@ import { Subscription } from 'rxjs';
 })
 export class ResultsComponent implements OnInit {
   subscription!: Subscription;
-  tickerInfo: any = "No results";
-  tickerData: any = "No results";
+
+  tickerFound: boolean = false;
+  dataFound: boolean = false;
+
+  tickerInfo: any;
+  tickerData: any;
 
   constructor(private SearchDataService: SearchDataService){}
 
@@ -26,10 +30,18 @@ export class ResultsComponent implements OnInit {
   }
 
   async results(){
-    this.tickerInfo = await this.SearchDataService.getTickerInfo();
-    console.log('info fetching:', this.tickerInfo);
+    const info = await this.SearchDataService.getTickerInfo();
+    if(info){
+      this.tickerFound = true;
+    }
+    this.tickerInfo = info.results;
+    console.log(this.tickerInfo.ticker_root);
+
     this.tickerData = await this.SearchDataService.getTickerData();
-    console.log('results fetching:', this.tickerData);
+    if(this.tickerData){
+      this.dataFound = true;
+    }
+    this.tickerData = this.tickerData.results;
   }
 
   ngOnDestroy() {

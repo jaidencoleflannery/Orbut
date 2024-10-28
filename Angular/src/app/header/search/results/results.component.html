@@ -1,6 +1,16 @@
-<p>results works!</p>
-<div class="search-results"> {{ tickerInfo | json }} </div>
-<div class="search-results"> {{ tickerData | json }} </div>
+<div id="results-container">
+    <div id='results'>
+    @if(tickerFound){
+        <div class="center"> TICKER: </div>
+        <div class="center"> {{ tickerInfo?.ticker_root | json }} </div>
+    }
+    @if(dataFound){
+        <div class="center"> DATA: </div>
+        <div class="center"> {{ tickerData | json }} </div>
+    }
+    </div>
+</div>
+
 
     <!-- <div class="search-results">Trading Volume: {{ data.v | json }}</div>
     <div class="search-results">Volume Weighted Average Price: {{ data.vw | json }}</div>
