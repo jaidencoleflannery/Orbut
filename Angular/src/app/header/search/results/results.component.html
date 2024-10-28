@@ -1,20 +1,24 @@
 <div id="results-container">
     <div id='results'>
     @if(tickerFound){
-        <div class="center"> TICKER: </div>
-        <div class="center"> {{ tickerInfo?.ticker_root | json }} </div>
+        <div id="ticker-title">
+            <div class="center"> TICKER: </div>
+            <div class="center"> {{ tickerInfo?.ticker_root | json }} </div>
+        </div>
     }
     @if(dataFound){
-        <div class="center"> DATA: </div>
-        <div class="center"> {{ tickerData | json }} </div>
+        <div class="column">
+            (graph)
+        </div>
+        <div class="column">
+            <div class="results-data"> DATA: </div>
+            <div class="results-data"> Trading Volume: {{ tickerData[0].v | json }} </div>
+            <div class="results-data"> Weighted Average Price: {{ tickerData[0].vw | json }} </div>
+            <div class="results-data"> Open Price: {{ tickerData[0].h | json }} </div>
+            <div class="results-data"> Close Price: {{ tickerData[0].c | json }} </div>
+            <div class="results-data"> Timestamp: {{ tickerData[0].t | json }} </div>
+            <div class="results-data"> Number of Transactions: {{ tickerData[0].n | json }} </div>
+        </div>
     }
     </div>
 </div>
-
-
-    <!-- <div class="search-results">Trading Volume: {{ data.v | json }}</div>
-    <div class="search-results">Volume Weighted Average Price: {{ data.vw | json }}</div>
-    <div class="search-results">Open Price: {{ data.o | json }}</div>
-    <div class="search-results">Close Price: {{ data.c | json }}</div>
-    <div class="search-results">Timestamp: {{ data.vw | json }}</div>
-    <div class="search-results">Number of Transactions: {{ data.vw | json }}</div> -->
