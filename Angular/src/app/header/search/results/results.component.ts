@@ -42,6 +42,7 @@ export class ResultsComponent implements OnInit {
       this.dataFound = true;
     }
     this.tickerData = this.tickerData.results;
+    this.tickerData.lastElement = (this.tickerData.length - 1);
   }
 
   ngOnDestroy() {
