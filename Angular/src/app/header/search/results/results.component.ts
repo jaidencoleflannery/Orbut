@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonPipe } from '@angular/common';
+import { GraphComponent } from './graph/graph.component';
 import { SearchDataService } from '@services/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-results',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [JsonPipe, GraphComponent],
   templateUrl: './results.component.html',
   styleUrl: './results.component.css'
 })
