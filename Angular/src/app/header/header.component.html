@@ -1,14 +1,11 @@
 <nav class="navbar">
     <div class="navbar-container">
-        <div class="menu-button">
-            <button id="menu-toggle" (mouseover)="nav()" [style]="{'display': exists}">☰</button>
-            <ul class="dropdown-menu">
-                <li><p class='home-redirect'>Dashboard</p></li>
-                <li><p class='about-redirect'>History</p></li>
-                <li><p class='contact-redirect'>Store</p></li>
-            </ul>
+        <div class="header-partition">
+            <app-nav />
         </div>
-        <app-search />
+        <div class="header-partition" id="search-partition">
+            <app-search />
+        </div>
         <app-results />
     </div>
 </nav>

@@ -13,130 +13,11 @@
     max-height: 4em;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: relative;
     max-width: 80vw;
     margin: 0 auto;
     padding: 1rem;
-}
-
-.menu-button {
-    display: flex;
-    position: relative;
-    display: flex;
-    width: 100%;
-    margin-left: 1.6em;
-    justify-content: left;
-}
-
-.menu-button button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-button .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    background-color: var(--bg-color);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.menu-button .dropdown-menu.active {
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    border-radius: 1em;
-    margin-top: 1.2em;
-}
-
-.menu-button .dropdown-menu li a {
-    padding: 0.5rem 1rem;
-    display: block;
-}
-
-.menu-button .dropdown-menu li a:hover {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-#menu-toggle{
-    color: var(--text-color);
-}
-
-.profile-button {
-    padding-top:0.4em;
-    display: flex;
-    width: 33%;
-    align-items: center;
-    justify-content: right;
-}
-
-.profile-button button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-}
-
-.profile-button .dropdown-profile {
-    display: none;
-    position: absolute;
-    top: 100%;
-    background-color: var(--bg-color);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.profile-button .dropdown-profile.active {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1em;
-    margin-top: 0.2em;
-    max-width: 1em;
-}
-
-ul.dopdown-profile.active {
-    max-width: 1px;
-}
-
-.profile-button .dropdown-profile li a {
-    padding: 0.5rem 1rem;
-    display: block;
-}
-
-.profile-button .dropdown-profile li a:hover {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-.profile-button button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-}
-
-#profile-toggle {
-    margin-left: auto;
-    right: 0;
 }
 
 #header-svg{
@@ -166,6 +47,15 @@ ul.dopdown-profile.active {
     width: 32px;
     height: 32px;
     border-radius: 50%;
+}
+
+.header-partition {
+    display: flex;
+    width: 50%;
+}
+
+#search-partition {
+    justify-content: right;
 }
 
 @media (max-width: 768px) {
