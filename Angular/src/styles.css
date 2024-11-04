@@ -8,8 +8,8 @@
     --bg-color: #181818;
     --font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     --transition-speed: 0.4s;
-    --text-size: 4em;
-    --subtext-size: 2.2em;
+    --text-size: 1.4em;
+    --subtext-size: 1em;
 }
 
 html {

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonPipe } from '@angular/common';
+import { GraphComponent } from './graph/graph.component';
 import { SearchDataService } from '@services/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-results',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [JsonPipe, GraphComponent],
   templateUrl: './results.component.html',
   styleUrl: './results.component.css'
 })
@@ -42,6 +43,7 @@ export class ResultsComponent implements OnInit {
       this.dataFound = true;
     }
     this.tickerData = this.tickerData.results;
+    this.tickerData.lastElement = (this.tickerData.length - 1);
   }
 
   ngOnDestroy() {

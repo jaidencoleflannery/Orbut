@@ -1,29 +1,42 @@
 #results-container {
     position: fixed;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     height: 80vh;
     width: 80vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 1em;
+    font-size: var(--text-size);
     background-color: var(--secondary-color);
 }
 
 #results {
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
     color: var(--text-color);
 }
 
-.center {
+#ticker-title {
+    position: absolute;
+    top: 4em;
+    left: 4em;
     display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: left;
+    justify-content: left;
+}
+
+.column {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    width: 50%;
 }
