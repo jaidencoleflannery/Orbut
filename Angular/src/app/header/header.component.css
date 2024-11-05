@@ -1,6 +1,6 @@
 
 .navbar {
-    background-color: var(--bg-color);
+    background-color: var(--header-color);
     border-bottom: 1px solid #181818;
     position: sticky;
     top: 0;

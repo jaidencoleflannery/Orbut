@@ -5,14 +5,14 @@
     justify-content: center;
     align-items: center;
     text-align: left;
-    height: 80vh;
-    width: 80vw;
+    height: 60vh;
+    width: 60vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 1em;
     font-size: var(--text-size);
-    background-color: var(--secondary-color);
+    background-color: var(--trinary-color);
 }
 
 #results {
