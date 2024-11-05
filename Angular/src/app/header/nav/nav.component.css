@@ -51,4 +51,5 @@
 
 #menu-toggle{
     color: var(--text-color);
+    padding-left: 1em;
 }
