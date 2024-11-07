@@ -1,4 +1,3 @@
-
 .navbar {
     background-color: var(--header-color);
     border-bottom: 1px solid #181818;
@@ -7,30 +6,32 @@
     z-index: 1000;
 }
 
+
 .navbar-container {
-    position: sticky;
-    min-height: 4em;
-    max-height: 4em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
     max-width: 80vw;
     margin: 0 auto;
     padding: 1rem;
+    box-sizing: border-box; /* Include padding in height calculations */
 }
+
 
 #header-svg{
     color: white;
 }
 
+
 .navlink {
     max-width: 1em;
 }
 
+
 .navlink-container {
     max-width: 1em;
 }
+
 
 .logo {
     text-align: center;
@@ -43,25 +44,30 @@
     color: var(--text-color);
 }
 
+
 .profile-icon img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
 }
 
+
 .header-partition {
     display: flex;
     width: 50%;
 }
 
+
 #search-partition {
     justify-content: right;
 }
+
 
 @media (max-width: 768px) {
     .navbar-container {
         padding: 0.5rem 1rem;
     }
+
 
     .menu-button button {
         font-size: 20px;
