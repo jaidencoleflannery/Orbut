@@ -1,0 +1,12 @@
+<div id="calculator-container">
+    <div id='calculator'>
+            <div> INVESTMENT CALCULATOR: </div>
+            <div> STARTING AMOUNT <input type="text" [(ngModel)]="startingAmount"></div>
+            <div> AFTER <input type="text" [(ngModel)]="timeRange"> YEARS </div>
+            <div> RETURN RATE <input type="text" [(ngModel)]="returnRate"></div>
+            <div> COMPOUND RATE <input type="text" [(ngModel)]="compoundRate"></div>
+            <div> ADDITIONAL CONTRIBUTION <input type="text" [(ngModel)]="addContributions"></div>
+            <div> CONTRIBUTE AT THE (dropdown - beginning or end) OF EACH (dropdown - month or year) </div>
+            <button (click)="calculateInvestment()"> submit </button>
+    </div>
+</div>

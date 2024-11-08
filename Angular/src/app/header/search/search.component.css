@@ -86,7 +86,10 @@
     background: var(--secondary-color);
     z-index: -1;
     transition: 0s;
+<<<<<<< HEAD
     padding-right: 0.4em;
+=======
+>>>>>>> f85d36c5cea518e8f3fb0829ebfbe6fe9868720a
 }
 
 .search .symbol::after {

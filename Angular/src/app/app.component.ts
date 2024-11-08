@@ -1,13 +1,13 @@
+import '@angular/compiler';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component'
 import { HeaderComponent } from './header/header.component';
-import { SearchComponent } from './search/search.component';
-import { ResultsComponent } from './search/results/results.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, SearchComponent, ResultsComponent],
+  imports: [RouterOutlet, HeaderComponent, DashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

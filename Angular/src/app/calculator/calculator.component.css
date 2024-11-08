@@ -1,0 +1,26 @@
+#calculator-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    height: 50em;
+    width: 50em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1em;
+    font-size: var(--text-size);
+    background-color: var(--trinary-color);
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 80%;
+    height: 80%;
+    color: var(--text-color);
+}
