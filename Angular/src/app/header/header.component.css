@@ -10,18 +10,10 @@
 .navbar-container {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
     position: relative;
     max-width: 1200px;
-=======
     justify-content: space-between;
     max-width: 100vw;
->>>>>>> Stashed changes
-=======
-    justify-content: space-between;
-    max-width: 80vw;
->>>>>>> f85d36c5cea518e8f3fb0829ebfbe6fe9868720a
     margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box; /* Include padding in height calculations */

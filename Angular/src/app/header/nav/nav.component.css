@@ -12,11 +12,7 @@
 .menu-button button {
     background: none;
     border: none;
-<<<<<<< HEAD
     font-size: 36px;
-=======
-    font-size: 24px;
->>>>>>> f85d36c5cea518e8f3fb0829ebfbe6fe9868720a
     cursor: pointer;
     padding: 0;
     margin: 0;
@@ -55,9 +51,5 @@
 
 #menu-toggle{
     color: var(--text-color);
-<<<<<<< HEAD
     padding-left: 0.4em;
-=======
-    padding-left: 1em;
->>>>>>> f85d36c5cea518e8f3fb0829ebfbe6fe9868720a
 }
