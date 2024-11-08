@@ -30,8 +30,13 @@ html {
     max-height: 4em;
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     position: relative;
     max-width: 1200px;
+=======
+    justify-content: space-between;
+    max-width: 100vw;
+>>>>>>> Stashed changes
     margin: 0 auto;
     padding: 1rem;
 }

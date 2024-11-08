@@ -1,0 +1,16 @@
+<div id="dashboard">
+    <div class="dash-partition">
+        <div class="scrollbar">
+            @for (item of notifications; track notifications.name) {
+                <div class="notification">
+                    {{ notifications.name }}
+                </div>
+            }
+        </div>
+    </div>
+    <div class="dash-partition">
+        <div class="scrollbar">
+            Notifications
+        </div>
+    </div>
+</div>

@@ -127,6 +127,26 @@ app.get('/search/:value', (req, res) => {
 }
 */
 
+app.get('/notifications', (req, res) => {
+    const notifications = [
+        {
+          id: 1,
+          name: "New Message",
+          message: "You have a new message from John",
+          type: "message",
+          timestamp: "2024-11-08T10:20:00Z",
+        },
+        {
+          id: 2,
+          name: "Friend Request",
+          message: "Alice sent you a friend request",
+          type: "friend_request",
+          timestamp: "2024-11-08T10:30:00Z",
+        },
+      ];
+    res(notifications);
+});
+
 app.post('/post', (req, res) => {
   res.send('post template');
 });

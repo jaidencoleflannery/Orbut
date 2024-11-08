@@ -1,0 +1,9 @@
+<div class="menu-button" (click)="nav('in')" (mouseleave)="nav('out')">
+    <button id="menu-toggle">✦</button>
+    <ul class="dropdown-menu" [ngStyle]="{'display': exists}" (mouseover)="nav('in')">
+        <li><a href='/'>Dashboard</a></li>
+        <li><a href='/history'>History</a></li>
+        <li><a href='/store'>Store</a></li>
+        <li><a href='/account'>Account</a></li>
+    </ul>
+</div>
