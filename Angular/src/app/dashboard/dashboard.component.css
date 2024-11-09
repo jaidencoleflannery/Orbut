@@ -11,19 +11,36 @@
     width: 60vw;
     font-size: var(--text-size);
     background-color: var(--bg-color);
-    border: 1px solid var(--trinary-color);
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-
-.dash-partition {
+#feed {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    width: 50%;
+    width: 70%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#notifications {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: 30%;
     height: 100%;
     border: 1px solid var(--trinary-color);
     padding: 0;
     margin: 0;
+}
+
+.notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 4em;
+    width: 100%;
 }

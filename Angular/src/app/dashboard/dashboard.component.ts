@@ -1,6 +1,6 @@
-import { Component} from '@angular/core';
-import { JsonPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '@services/notification.service';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,12 +9,27 @@ import { NotificationService } from '@services/notification.service';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
-  constructor(private NotificationService: NotificationService) {}
+export class DashboardComponent implements OnInit {
+  constructor(private NotificationService: NotificationService, public auth: AuthService) {}
+
+  ngOnInit(): void {
+    this.getNotifications(); // Call your method here
+  }
 
   notifications: any;
 
-  getNotifications(value: string){
-    this.notifications = this.NotificationService.getNotifications;
+  async getNotifications() {
+    try {
+      const response = await this.NotificationService.getNotifications();
+      this.notifications = response; // Adjust according to the structure of your JSON
+      console.log(this.notifications);
+      console.log(this.notifications);
+      console.log(this.notifications);
+      console.log(this.notifications);
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    }
+    console.log('endnoti');
   }
+  
 }

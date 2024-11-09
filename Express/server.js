@@ -205,7 +205,7 @@ app.get('/notifications', (req, res) => {
           timestamp: "2024-11-08T10:30:00Z",
         },
       ];
-    res(notifications);
+    res.json(notifications);
 });
 
 app.post('/post', (req, res) => {
