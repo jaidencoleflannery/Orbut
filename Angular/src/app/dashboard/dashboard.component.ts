@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '@services/notification.service';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +11,20 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  constructor(private NotificationService: NotificationService, public auth: AuthService) {}
+  constructor(private NotificationService: NotificationService, private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.authService.isAuthenticated().subscribe(
+      response => {
+        console.log('authenticated');
+      },
+      error => {
+          this.router.navigate(['login']);
+      }
+    );
+  };
+
+  OnInit(): void {
     this.getNotifications(); // Call your method here
   }
 

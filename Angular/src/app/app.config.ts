@@ -1,18 +1,20 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideAuth0 } from '@auth0/auth0-angular';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideAuth0({
-      domain: 'YOUR_AUTH0_DOMAIN',
-      clientId: 'YOUR_AUTH0_CLIENT_ID',
-      authorizationParams: {
-        redirect_uri: window.location.origin,
-      },
-    }),
+    provideHttpClient(
+      withInterceptorsFromDi()
+    ),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
 };

@@ -1,21 +1,27 @@
+const { clerkClient, requireAuth } = require('@clerk/express');
+const { clerkMiddleware } = require('@clerk/express');
 const express = require('express');
 const app = express();
 const request = require('request');
 const cors = require('cors');
 const port = process.env.PORT || 3000; 
 
-app.use(cors({
-    origin: 'http://localhost:4200'
-  }));
-
 const date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
 
-app.get('/', (req, res) => {
-    res.send("Home");
-});
+app.use(cors({
+    origin: 'http://localhost:4200'
+  }));
+
+  app.use(clerkMiddleware());
+
+app.get('/protected', requireAuth({ signInUrl: '/sign-in' }), async (req, res) => {
+    const { userId } = req.auth
+    const user = await clerkClient.users.getUser(userId)
+    return res.json({ user })
+  })
 
 app.get('/ticker/:ticker', (req, res) => {
     const ticker = req.params.ticker;
